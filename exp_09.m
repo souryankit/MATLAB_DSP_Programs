@@ -1,0 +1,21 @@
+% Chebyshev low-pass IIR filter programm
+clc;
+clear all;
+close all;
+alphap = 0.15;
+alphas =0.9;
+wp= 0.3*pi;
+ws= 0.5*pi;
+[n,wn] = cheb1ord(wp/pi,ws/pi,alphap,alphas);
+[b,a] = cheby1(n,alphap,wn);
+[h,w] = freqz(b,a);
+subplot(2,1,1); 
+plot(w/pi,20*log10(abs(h)));
+xlabel('Normalized Frequency');
+ylabel('Gain in db');
+title('Magnitude response');
+subplot(2,1,2);
+plot(w/pi,angle(h));
+xlabel('Normalized Frequency');
+ylabel('Phase in radian');
+title('Phase response');
