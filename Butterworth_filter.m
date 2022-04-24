@@ -1,4 +1,5 @@
- //Butterworth low-pass filter programm
+ //Butterworth low-pass filter program
+ 
 clc;
 clear all;
 close all;
